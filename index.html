@@ -167,7 +167,7 @@
       text-align: center;
       color: #ffffff;
       margin: 1rem 0;
-      font-size: 1rem;
+      font-size: 3rem;
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
     
@@ -216,9 +216,7 @@
         padding: 15px 25px; /* 버튼 패딩 조정 */
       }
 
-      #fortuneText, #coupleResult {
-        font-size: 1.5rem; /* 결과 텍스트 크기 조정 */
-      }
+
 
       input {
         max-width: 100%; /* 입력 필드 최대 너비 조정 */
@@ -232,7 +230,7 @@
       }
 
       #slotResult {
-        font-size: 1.8rem; /* 슬롯 결과 텍스트 크기 조정 */
+        font-size: 3rem; /* 슬롯 결과 텍스트 크기 조정 */
       }
 
       .action-buttons {
@@ -265,9 +263,6 @@
         padding: 12px 20px; /* 버튼 패딩 조정 */
       }
 
-      #fortuneText, #coupleResult {
-        font-size: 1.3rem; /* 결과 텍스트 크기 조정 */
-      }
 
       input {
         font-size: 1rem; /* 입력 필드 글씨 크기 조정 */
@@ -279,9 +274,7 @@
         padding: 15px 30px; /* 버튼 패딩 조정 */
       }
 
-      #slotResult {
-        font-size: 1.5rem; /* 슬롯 결과 텍스트 크기 조정 */
-      }
+
     }
 
     /* 슬롯머신 섹션 고급 디자인 */
@@ -326,13 +319,14 @@
     }
 
     .reel {
-      width: 120px;
-      height: 140px;
+      width: 240px; /* 슬롯 아이템 너비 */
+      width: 240px;
+      height: 260px;
       background: linear-gradient(145deg, #ffffff, #f0f0f0);
       border: 5px solid #FFD700;
       border-radius: 15px;
       font-weight: bold;
-      font-size: 2.5rem;
+      font-size: 5rem;
       color: #333;
       display: flex;
       justify-content: center;
@@ -465,7 +459,7 @@
     <section id="fortuneSection">
       <h2>오늘의 운세</h2>
       <!-- 초기에는 빈 상태 -->
-      <p id="fortuneText" style="font-size:1.1rem; margin-bottom: 0.8rem;"></p>
+      <p id="fortuneText"></p>
       <!-- 오늘의 짤 영역은 처음엔 숨김 -->
       <div id="fortuneMeme" style="display: none;">
         <img id="fortuneMemeImage" src="" alt="오늘의 짤">
@@ -505,14 +499,14 @@
     
     <!-- 3. 슬롯머신 섹션 -->
     <section id="slotSection">
-      <h2>슬롯머신 (777 스타일)</h2>
+      <h2>슬롯머신</h2>
       <div id="slotReels">
         <div class="reel" id="reel1">--</div>
         <div class="reel" id="reel2">--</div>
         <div class="reel" id="reel3">--</div>
       </div>
       <button class="btn" id="spinButton" style="font-size: 3.6rem; padding: 45px 120px;">슬롯 돌리기</button>
-      <p id="slotResult" style="font-size:1.1rem; margin-top:0.8rem;"></p>
+      <p id="slotResult"></p>
       <div class="action-buttons">
         <button class="btn" onclick="likeSection('slot')">좋아요 ♥ <span id="slotLike">0</span></button>
         <button class="btn" onclick="shareSection('슬롯머신')">공유 ↪</button>
@@ -565,45 +559,28 @@
     
     // 슬롯머신 아이템: label과 color, background, textColor 지정
     const slotItems = [
-      { 
-        label: "777", 
-        color: "#FFD700", 
-        background: "linear-gradient(145deg, #8B0000, #800000)",
-        textColor: "#FFD700"
-      },
-      { 
-        label: "$$", 
-        color: "#90EE90", 
-        background: "linear-gradient(145deg, #006400, #008000)",
-        textColor: "#F0FFF0"
-      },
-      { 
-        label: "♦", 
-        color: "#4169E1", 
-        background: "linear-gradient(145deg, #00008B, #0000CD)",
-        textColor: "#F0F8FF"
-      },
-      { 
-        label: "★", 
-        color: "#DDA0DD", 
-        background: "linear-gradient(145deg, #4B0082, #8B008B)",
-        textColor: "#FFE4E1"
-      },
-      { 
-        label: "7", 
-        color: "#FFA07A", 
-        background: "linear-gradient(145deg, #8B4513, #A0522D)",
-        textColor: "#FFE4B5"
-      },
-      { 
-        label: "♠", 
-        color: "#20B2AA", 
-        background: "linear-gradient(145deg, #2F4F4F, #008B8B)",
-        textColor: "#E0FFFF"
-      }
+      { label: "777", color: "#FFD700", background: "linear-gradient(145deg, #8B0000, #800000)", textColor: "#FFD700" },
+      { label: "$$", color: "#90EE90", background: "linear-gradient(145deg, #006400, #008000)", textColor: "#F0FFF0" },
+      { label: "♦", color: "#4169E1", background: "linear-gradient(145deg, #00008B, #0000CD)", textColor: "#F0F8FF" },
+      { label: "★", color: "#DDA0DD", background: "linear-gradient(145deg, #4B0082, #8B008B)", textColor: "#FFE4E1" },
+      { label: "7", color: "#FFA07A", background: "linear-gradient(145deg, #8B4513, #A0522D)", textColor: "#FFE4B5" },
+      { label: "♠", color: "#20B2AA", background: "linear-gradient(145deg, #2F4F4F, #008B8B)", textColor: "#E0FFFF" }
     ];
-    // 잭팟 확률 (0~1, 예: 0.1 = 10% 확률)
-    const winProbability = 0.1;
+
+    
+    let winProbability = 0.1; 
+
+    
+    function setJackpotProbability(probability) {
+      if (probability >= 0 && probability <= 1) {
+        winProbability = probability;
+      } else {
+        console.error("확률은 0과 1 사이의 값이어야 합니다.");
+      }
+    }
+
+    // 잭팟 확률을 20%로 설정
+    setJackpotProbability(0.2);
     
     /* ---------------- 오늘의 운세 + 짤 ---------------- */
     function showFortune() {
@@ -701,7 +678,7 @@
       reel.style.background = item.background;
       reel.style.color = item.textColor;
       reel.style.borderColor = item.color;
-      reel.style.fontSize = '2.5rem';
+      reel.style.fontSize = '7rem';
       reel.style.fontWeight = 'bold';
       reel.style.textShadow = `0 0 10px ${item.color}, 0 0 20px ${item.color}`;
       reel.style.transition = 'all 0.3s ease';
@@ -715,13 +692,13 @@
       
       if (res1 === res2 && res2 === res3) {
         slotResult.innerHTML = `
-          <span style="color: #FFD700; font-size: 1.5em; text-shadow: 0 0 10px #FFD700;">
+          <span style="color: #FFD700; font-size: 5em; text-shadow: 0 0 10px #FFD700;">
             🎉 대박! ${res1} 잭팟! 🎉
           </span>`;
       } else {
         slotResult.innerHTML = `
-          <span style="color: #FFA07A;">
-            ${res1} ${res2} ${res3}
+         <span style="color: #FFD700; font-size: 5em; text-shadow: 0 0 10px #FFD700;">
+            꽝입니다! 
           </span>`;
       }
     }
