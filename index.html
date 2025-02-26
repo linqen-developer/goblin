@@ -181,6 +181,10 @@
     
     /* 모바일 최적화 */
     @media (max-width: 768px) {
+      body {
+        font-size: 16px; /* 기본 폰트 크기 조정 */
+      }
+
       header {
         flex-direction: column;
         gap: 1rem;
@@ -188,78 +192,89 @@
       }
 
       .header-center img {
-        width: 60px;
-        height: 60px;
+        width: 80px; /* 고블린 이미지 크기 조정 */
+        height: 80px;
       }
 
       .header-left img {
-        width: 35px;
-        height: 35px;
+        width: 50px; /* 소셜 미디어 아이콘 크기 조정 */
+        height: 50px;
       }
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 2rem; /* 제목 크기 조정 */
       }
 
       .btn {
-        font-size: 1rem;
-        padding: 12px 20px;
+        font-size: 1.2rem; /* 버튼 크기 조정 */
+        padding: 15px 25px; /* 버튼 패딩 조정 */
       }
 
       #fortuneText, #coupleResult {
-        font-size: 1.2rem;
+        font-size: 1.5rem; /* 결과 텍스트 크기 조정 */
       }
 
       input {
-        max-width: 100%;
-        font-size: 1rem;
+        max-width: 100%; /* 입력 필드 최대 너비 조정 */
+        font-size: 1.2rem; /* 입력 필드 글씨 크기 조정 */
+        padding: 12px; /* 입력 필드 패딩 조정 */
       }
 
       #spinButton {
-        font-size: 1.2rem;
-        padding: 15px 30px;
+        font-size: 1.5rem; /* 슬롯머신 스핀 버튼 크기 조정 */
+        padding: 20px 40px; /* 버튼 패딩 조정 */
       }
 
       #slotResult {
-        font-size: 1.5rem;
+        font-size: 1.8rem; /* 슬롯 결과 텍스트 크기 조정 */
+      }
+
+      .action-buttons {
+        flex-direction: column; /* 버튼을 세로로 정렬 */
+        gap: 15px; /* 버튼 간의 간격 */
       }
     }
     /* 작은 모바일 화면 */
     @media (max-width: 360px) {
+      body {
+        font-size: 14px; /* 기본 폰트 크기 조정 */
+      }
+
       .header-center img {
-        width: 50px;
-        height: 50px;
+        width: 70px; /* 고블린 이미지 크기 조정 */
+        height: 70px;
       }
 
       .header-left img {
-        width: 30px;
-        height: 30px;
+        width: 40px; /* 소셜 미디어 아이콘 크기 조정 */
+        height: 40px;
       }
 
       h2 {
-        font-size: 1.3rem;
+        font-size: 1.8rem; /* 제목 크기 조정 */
       }
 
       .btn {
-        font-size: 0.9rem;
-        padding: 10px 15px;
+        font-size: 1rem; /* 버튼 크기 조정 */
+        padding: 12px 20px; /* 버튼 패딩 조정 */
       }
 
       #fortuneText, #coupleResult {
-        font-size: 1rem;
+        font-size: 1.3rem; /* 결과 텍스트 크기 조정 */
       }
 
       input {
-        font-size: 0.9rem;
+        font-size: 1rem; /* 입력 필드 글씨 크기 조정 */
+        padding: 10px; /* 입력 필드 패딩 조정 */
       }
 
       #spinButton {
-        font-size: 1rem;
-        padding: 12px 25px;
+        font-size: 1.3rem; /* 슬롯머신 스핀 버튼 크기 조정 */
+        padding: 15px 30px; /* 버튼 패딩 조정 */
       }
 
       #slotResult {
-        font-size: 1.3rem;
+        font-size: 1.5rem; /* 슬롯 결과 텍스트 크기 조정 */
       }
     }
 
