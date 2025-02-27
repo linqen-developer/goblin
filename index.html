@@ -2,81 +2,70 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>고블린 운세 채널</title>
+  <title>고블린 운세</title> 
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* 기본 리셋 및 공통 스타일 */
+  <style>  
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Pretendard', Arial, sans-serif;
-      background: linear-gradient(145deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff); /* 무지개 배경 */
+      background: linear-gradient(145deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff);
       line-height: 1.5;
-      color: #ffffff; /* 글자 색상 변경 */
+      color: #ffffff;
       min-height: 100vh;
-      font-size: 3rem; /* 전체 글자 크기 3배 증가 */
+      font-size: 3rem;
+      text-align: center;
     }
     a { text-decoration: none; color: inherit; }
     
     /* 헤더 영역 */
     header {
-      background: linear-gradient(145deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff); /* 무지개 헤더 */
+      background: linear-gradient(145deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff);
       padding: 1rem;
       border-bottom: 2px solid #FFD700;
-      position: relative;
       display: flex;
-      justify-content: space-between; /* 좌우 정렬 */
-      align-items: center; /* 수직 가운데 정렬 */
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    
     .header-center {
       display: flex;
-      flex-direction: column; /* 세로 방향으로 정렬 */
-      align-items: center; /* 가운데 정렬 */
+      flex-direction: column;
+      align-items: center;
     }
-
     .header-center img {
-      width: 150px; /* 로고 크기 증가 */
-      height: 150px; /* 로고 크기 증가 */
-      display: block;
-      margin: 0 auto 0.5rem;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       border: 3px solid #FFD700;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 15px rgba(255,215,0,0.3);
+      margin-bottom: 0.5rem;
     }
-    
-    .header-center p {
-      font-size: 1rem;
-      font-weight: bold;
-      color: #FFD700;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-    }
-
     .header-left {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-top: 1rem; /* 버튼과 로고 간의 간격 추가 */
+      margin-top: 1rem;
     }
-
     .header-left img {
-      width: 120px; /* 버튼 크기 증가 */
-      height: 120px; /* 버튼 크기 증가 */
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 2px solid #FFD700;
       transition: transform 0.3s;
     }
-    
     .header-left img:hover {
       transform: scale(1.1);
     }
-
+    
+    /* 이벤트 배너 */
     .event-banner {
-      text-align: center; /* 가운데 정렬 */
-      margin-top: 3rem; /* 섹션과 배너 간의 간격 */
-      color: #ff007f; /* 배너 글자 색상 변경 */
-      background: rgba(255, 255, 255, 0.1); /* 배경 색상 */
-      padding: 10px; /* 패딩 추가 */
-      border-radius: 100px; /* 둥근 모서리 */
+      text-align: center;
+      margin-top: 3rem;
+      color: #ff007f;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 100px;
+      font-size: 2.4rem;
     }
     
     /* 메인 컨텐츠 영역 */
@@ -90,58 +79,39 @@
       margin-bottom: 1.5rem;
       padding: 1.5rem;
       border-radius: 15px;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255,215,0,0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
     h2 { 
       margin-bottom: 1rem; 
-      font-size: 3.9rem; /* 제목 크기 3배 증가 */
-      color: #ff007f; /* 제목 색상 변경 */
-      text-align: center;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      font-size: 3.9rem;
+      color: #ff007f;
+      text-shadow: 0 0 10px rgba(255,215,0,0.3);
     }
     
-    /* 공통 버튼 스타일 */
-    .btn {
-      background: linear-gradient(145deg, #FFD700, #FFA500); /* 황금색 버튼 배경 */
-      color: #1a1a1a; /* 버튼 글자 색상 변경 */
-      padding: 12px 20px; /* 버튼 패딩 */
-      font-size: 2.7rem; /* 버튼 글자 크기 */
-      border: none; /* 테두리 없음 */
-      border-radius: 215px; /* 테두리 반경 */
-      font-weight: bold; /* 글자 두께 */
-      cursor: pointer; /* 커서 모양 */
-      transition: all 0.3s ease; /* 전환 효과 */
-      box-shadow: 0 3px 10px rgba(255, 215, 0, 0.2); /* 그림자 효과 */
-    }
-    .btn:hover {
-      background: linear-gradient(145deg, #FFA500, #FFD700); /* 호버 시 색상 변경 */
-    }
-    .btn:active {
-      transform: translateY(1px);
-    }
-    
-    /* 입력 필드 스타일 */
+    /* 입력 필드 */
     input {
-      background: rgba(255, 255, 255, 0.2); /* 입력 필드 배경 색상 */
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      padding: 30px 45px; /* 패딩을 늘려서 크기 증가 */
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,215,0,0.3);
+      padding: 30px 45px;
       border-radius: 125px;
-      color: #ffffff; /* 입력 필드 글자 색상 변경 */
-      font-size: 2.7rem; /* 글자 크기 3배 증가 */
+      color: #ffffff;
+      font-size: 2.7rem;
       width: 100%;
-      max-width: 450px; /* 최대 너비 조정 */
+      max-width: 450px;
+      margin: 0 auto;
+      display: block;
     }
     input::placeholder {
-      color: rgba(255, 215, 0, 0.5);
+      color: rgba(255,215,0,0.5);
     }
     
     /* 연인 운세 섹션 */
     .couple-input {
       display: flex;
-      flex-wrap: wrap; /* 2열로 배치 */
-      justify-content: center; /* 가운데 정렬 */
-      gap: 15px; /* 간격 조정 */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
       margin-bottom: 1rem;
     }
     .lover {
@@ -150,144 +120,93 @@
       flex-wrap: wrap;
       justify-content: center;
     }
-    .heart {
-      font-size: 4.5rem; /* 하트 크기 3배 증가 */
-      margin: 0 10px; /* 하트와 입력 필드 간의 간격 조정 */
-      display: flex;
-      align-items: center; /* 수직 가운데 정렬 */
-    }
-    @keyframes heartbeat {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
     
-    /* 결과 텍스트 스타일 */
-    #fortuneText, #coupleResult {
+    /* 결과 텍스트 */
+    #fortuneText,
+    #coupleResult {
       text-align: center;
       color: #ffffff;
       margin: 1rem 0;
       font-size: 3rem;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 10px rgba(255,215,0,0.3);
+    }
+    
+    /* 버튼 중앙 정렬 (간격 5px) */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1px;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+.btn {
+  background: linear-gradient(145deg, #FFD700, #FFA500);
+  color: #1a1a1a;
+  padding: 12px 20px;
+  font-size: 2.7rem;
+  border: none;
+  border-radius: 215px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(255,215,0,0.2);
+  margin: 0 15px; 
+}
+
+    .btn:hover {
+      background: linear-gradient(145deg, #FFA500, #FFD700);
+    }
+    .btn:active {
+      transform: translateY(1px);
     }
     
     /* 푸터 */
     footer {
       text-align: center;
       padding: 1.5rem;
-      background: linear-gradient(145deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff); /* 무지개 푸터 */
+      background: linear-gradient(145deg, #ff0000, #ff7f00, #ffff00, #7fff00, #00ff00, #00ff7f, #00ffff, #007fff, #0000ff, #7f00ff, #ff00ff);
       border-top: 2px solid #FFD700;
       font-size: 0.9rem;
-      color: #ffffff; /* 푸터 글자 색상 변경 */
+      color: #ffffff;
     }
-    footer a {
-      color: #FFD700;
-      text-decoration: underline;
-    }
+    footer a { color: #FFD700; text-decoration: underline; }
     
-    /* 모바일 최적화 */
-    @media (max-width: 768px) {
-      body {
-        font-size: 16px; /* 기본 폰트 크기 조정 */
-      }
-
-      header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem 0.5rem;
-      }
-
-      .header-center img {
-        width: 80px; /* 고블린 이미지 크기 조정 */
-        height: 80px;
-      }
-
-      .header-left img {
-        width: 50px; /* 소셜 미디어 아이콘 크기 조정 */
-        height: 50px;
-      }
-
-      h2 {
-        font-size: 2rem; /* 제목 크기 조정 */
-      }
-
-      .btn {
-        font-size: 1.2rem; /* 버튼 크기 조정 */
-        padding: 15px 25px; /* 버튼 패딩 조정 */
-      }
-
-
-
-      input {
-        max-width: 100%; /* 입력 필드 최대 너비 조정 */
-        font-size: 1.2rem; /* 입력 필드 글씨 크기 조정 */
-        padding: 12px; /* 입력 필드 패딩 조정 */
-      }
-
-      #spinButton {
-        font-size: 1.5rem; /* 슬롯머신 스핀 버튼 크기 조정 */
-        padding: 20px 40px; /* 버튼 패딩 조정 */
-      }
-
-      #slotResult {
-        font-size: 3rem; /* 슬롯 결과 텍스트 크기 조정 */
-      }
-
-      .action-buttons {
-        flex-direction: column; /* 버튼을 세로로 정렬 */
-        gap: 15px; /* 버튼 간의 간격 */
-      }
-    }
-    /* 작은 모바일 화면 */
-    @media (max-width: 360px) {
-      body {
-        font-size: 14px; /* 기본 폰트 크기 조정 */
-      }
-
-      .header-center img {
-        width: 70px; /* 고블린 이미지 크기 조정 */
-        height: 70px;
-      }
-
-      .header-left img {
-        width: 40px; /* 소셜 미디어 아이콘 크기 조정 */
-        height: 40px;
-      }
-
-      h2 {
-        font-size: 1.8rem; /* 제목 크기 조정 */
-      }
-
-      .btn {
-        font-size: 1rem; /* 버튼 크기 조정 */
-        padding: 12px 20px; /* 버튼 패딩 조정 */
-      }
-
-
-      input {
-        font-size: 1rem; /* 입력 필드 글씨 크기 조정 */
-        padding: 10px; /* 입력 필드 패딩 조정 */
-      }
-
-      #spinButton {
-        font-size: 1.3rem; /* 슬롯머신 스핀 버튼 크기 조정 */
-        padding: 15px 30px; /* 버튼 패딩 조정 */
-      }
-
-
-    }
-
-    /* 슬롯머신 섹션 고급 디자인 */
-    #slotSection {
+    /* 모달 팝업 스타일 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      padding-top: 5%;
       text-align: center;
+    }
+    .modal-content {
+      position: relative;
       background: linear-gradient(145deg, #1a1a1a, #2c2c2c);
-      padding: 30px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 800px;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      border: 2px solid #4a4a4a;
-      margin: 2rem auto;
     }
-
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #ffffff;
+      font-size: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    /* 슬롯머신 모달 내 슬롯 스타일 */
     #slotReels {
       background: linear-gradient(to bottom, #8B0000, #660000);
       padding: 40px 30px;
@@ -303,7 +222,6 @@
       border: 4px solid #FFD700;
       position: relative;
     }
-
     #slotReels::before {
       content: '';
       position: absolute;
@@ -317,16 +235,14 @@
       filter: blur(15px);
       opacity: 0.3;
     }
-
     .reel {
-      width: 240px; /* 슬롯 아이템 너비 */
       width: 240px;
       height: 260px;
       background: linear-gradient(145deg, #ffffff, #f0f0f0);
       border: 5px solid #FFD700;
       border-radius: 15px;
       font-weight: bold;
-      font-size: 5rem;
+      font-size: 7rem;
       color: #333;
       display: flex;
       justify-content: center;
@@ -338,7 +254,6 @@
       overflow: hidden;
       transition: transform 0.3s;
     }
-
     .reel::before {
       content: '';
       position: absolute;
@@ -346,14 +261,9 @@
       left: 0;
       right: 0;
       height: 50%;
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.9),
-        rgba(255,255,255,0)
-      );
+      background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0));
       pointer-events: none;
     }
-
     .reel::after {
       content: '';
       position: absolute;
@@ -361,22 +271,16 @@
       left: 0;
       right: 0;
       height: 50%;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.1),
-        rgba(0,0,0,0)
-      );
+      background: linear-gradient(to top, rgba(0,0,0,0.1), rgba(0,0,0,0));
       pointer-events: none;
     }
-
     #spinButton {
       background: linear-gradient(145deg, #FFD700, #FFA500);
       padding: 45px 120px;
       font-size: 3.6rem;
       border-radius: 30px;
-      box-shadow: 
-        0 5px 20px rgba(255,215,0,0.3),
-        inset 0 -2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 20px rgba(255,215,0,0.3),
+                  inset 0 -2px 5px rgba(0,0,0,0.2);
       margin: 25px 0;
       border: none;
       color: #8B0000;
@@ -388,22 +292,17 @@
       position: relative;
       overflow: hidden;
     }
-
     #spinButton:hover {
       transform: translateY(-2px);
       background: linear-gradient(145deg, #FFA500, #FFD700);
-      box-shadow: 
-        0 8px 25px rgba(255,215,0,0.4),
-        inset 0 -2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 25px rgba(255,215,0,0.4),
+                  inset 0 -2px 5px rgba(0,0,0,0.2);
     }
-
     #spinButton:active {
       transform: translateY(1px);
-      box-shadow: 
-        0 2px 15px rgba(255,215,0,0.3),
-        inset 0 -1px 3px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 15px rgba(255,215,0,0.3),
+                  inset 0 -1px 3px rgba(0,0,0,0.2);
     }
-
     #spinButton::before {
       content: '';
       position: absolute;
@@ -415,30 +314,48 @@
       transform: rotate(45deg);
       animation: buttonGlow 2s infinite;
     }
-
     @keyframes buttonGlow {
       0% { transform: rotate(45deg) translateX(-100%); }
       100% { transform: rotate(45deg) translateX(100%); }
     }
-
-    /* 모든 섹션 버튼 정렬 */
-    .action-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    #slotResult {
+      text-align: center;
+      color: #FFD700;
+      font-size: 4em;
+      text-shadow: 0 0 10px #FFD700;
       margin-top: 1rem;
+    }
+    
+    /* 잭팟 당첨 시 표시할 폼 (메일투 방식) */
+    #jackpotForm {
+      display: none;
+      margin-top: 20px;
+    }
+    #jackpotForm form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    #jackpotForm input {
+      max-width: 300px;
+      font-size: 1.8rem;
+      padding: 10px;
+    }
+    #jackpotForm label {
+      font-size: 1.5rem;
+    }
+    #jackpotForm button {
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
-
   <!-- 헤더 -->
   <header>
     <div class="header-center">
-      <!-- 고블린 마스코트 이미지 + 소개글 -->
       <img src="https://via.placeholder.com/150?text=Goblin" alt="고블린 마스코트">
     </div>
-    <!-- 소셜 미디어 버튼들 -->
     <div class="header-left">
       <a href="https://www.youtube.com/" target="_blank">
         <img src="https://via.placeholder.com/120?text=YT" alt="YouTube">
@@ -450,18 +367,15 @@
         <img src="https://via.placeholder.com/120?text=TT" alt="TikTok">
       </a>
     </div>
- 
   </header>
-
+  
   <!-- 메인 컨텐츠 -->
   <main>
-    <!-- 1. 오늘의 운세 섹션 (오늘의 짤 통합) -->
+    <!-- 오늘의 운세 섹션 -->
     <section id="fortuneSection">
       <h2>오늘의 운세</h2>
-      <!-- 초기에는 빈 상태 -->
       <p id="fortuneText"></p>
-      <!-- 오늘의 짤 영역은 처음엔 숨김 -->
-      <div id="fortuneMeme" style="display: none;">
+      <div id="fortuneMeme" class="meme-container" style="display: none;">
         <img id="fortuneMemeImage" src="" alt="오늘의 짤">
         <br>
         <a id="fortuneDownloadLink" class="download-link" href="" download="meme.jpg">이미지 다운로드</a>
@@ -469,12 +383,13 @@
       <div class="action-buttons">
         <button class="btn" onclick="showFortune()">운세 점치기</button>
         <button class="btn" onclick="likeSection('fortune')">좋아요 ♥ <span id="fortuneLike">0</span></button>
-        <button class="btn" onclick="shareSection('오늘의 운세')">공유 ↪</button>
+        <!-- 공유 버튼 클릭 시 슬롯머신 모달 오픈 -->
+        <button class="btn" onclick="showSlotModal()">공유 ↪</button>
       </div>
-      <div class="event-banner" style="font-size: 2.4rem;">공유 시 상품 추첨 이벤트!</div>
+      <div class="event-banner">공유 시 상품 추첨 이벤트!</div>
     </section>
     
-    <!-- 2. 연인 운세 섹션 -->
+    <!-- 연인 운세 섹션 -->
     <section id="coupleSection">
       <h2>연인 운세❤️</h2>
       <div class="couple-input">
@@ -482,36 +397,19 @@
           <input type="text" id="lover1Name" placeholder="남자친구 이름">
           <input type="number" id="lover1Age" placeholder="남자친구 나이">
         </div>
-      
         <div class="lover">
           <input type="text" id="lover2Name" placeholder="여자친구 이름">
           <input type="number" id="lover2Age" placeholder="여자친구 나이">
         </div>
       </div>
-      <p id="coupleResult" style="font-size: 1.1rem; margin-top: 0.8rem;"></p>
+      <p id="coupleResult"></p>
       <div class="action-buttons">
         <button class="btn" onclick="showCoupleFortune()">운세 확인하기</button>
         <button class="btn" onclick="likeSection('couple')">좋아요 ♥ <span id="coupleLike">0</span></button>
-        <button class="btn" onclick="shareSection('연인 운세')">공유 ↪</button>
+        <!-- 공유 버튼 클릭 시 슬롯머신 모달 오픈 -->
+        <button class="btn" onclick="showSlotModal()">공유 ↪</button>
       </div>
-      <div class="event-banner" style="font-size: 2.4rem;">공유 시 상품 추첨 이벤트!</div>
-    </section>
-    
-    <!-- 3. 슬롯머신 섹션 -->
-    <section id="slotSection">
-      <h2>슬롯머신</h2>
-      <div id="slotReels">
-        <div class="reel" id="reel1">--</div>
-        <div class="reel" id="reel2">--</div>
-        <div class="reel" id="reel3">--</div>
-      </div>
-      <button class="btn" id="spinButton" style="font-size: 3.6rem; padding: 45px 120px;">슬롯 돌리기</button>
-      <p id="slotResult"></p>
-      <div class="action-buttons">
-        <button class="btn" onclick="likeSection('slot')">좋아요 ♥ <span id="slotLike">0</span></button>
-        <button class="btn" onclick="shareSection('슬롯머신')">공유 ↪</button>
-      </div>
-      <div class="event-banner" style="font-size: 2.4rem;">공유 시 상품 추첨 이벤트!</div>
+      <div class="event-banner">공유 시 상품 추첨 이벤트!</div>
     </section>
   </main>
   
@@ -521,20 +419,72 @@
     <button class="btn" onclick="copyPageLink()">전체 페이지 공유 (링크 복사)</button>
   </footer>
   
+  <!-- 슬롯머신 모달 팝업 -->
+  <div id="slotModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeSlotModal()">&times;</span>
+      <h2 style="color:#FFD700; text-shadow:0 0 10px #FFD700;">슬롯머신</h2>
+      <!-- 슬롯 결과 영역 -->
+      <div id="slotShareArea">
+        <div id="slotReels">
+          <div class="reel" id="reel1">--</div>
+          <div class="reel" id="reel2">--</div>
+          <div class="reel" id="reel3">--</div>
+        </div>
+        <p id="slotResult"></p>
+      </div>
+      <!-- 잭팟 당첨 시 표시할 폼 (mailto 방식) -->
+      <div id="jackpotForm">
+        <h3>잭팟 당첨!</h3>
+        <form action="mailto:target@example.com?subject=잭팟%20당첨%20정보" method="post" enctype="text/plain">
+          <input type="text" id="jackpotName" name="name" placeholder="이름" required>
+          <input type="tel" id="jackpotPhone" name="phone" placeholder="전화번호" required>
+          <label>
+            <input type="checkbox" id="privacyConsent" required> 개인정보 보호 동의
+          </label>
+          <button type="submit" class="btn">정보 전송</button>
+        </form>
+      </div>
+      <div class="action-buttons">
+        <!-- 슬롯 돌리기 후, 결과에 따라 버튼이 "공유하기"로 전환됩니다 -->
+        <button class="btn" id="spinButton" onclick="spinSlot()">슬롯 돌리기</button>
+      </div>
+    </div>
+  </div>
+  
   <script>
-    /* ---------------- 데이터 배열 ---------------- */
-    // 오늘의 운세 문구 (랜덤 선택)
+    /* 오늘의 운세 데이터 */
     const fortunes = [
       "오늘은 달콤한 간식을 먹으면 행운이 찾아옵니다!",
       "조금 느긋하게 쉬어가는 하루, 힐링 타임!",
       "뜻밖의 소식이 들려올지도 모릅니다.",
       "작은 변화가 큰 기회를 가져다줍니다.",
-      "오늘은 웃음이 끊이지 않을 하루입니다.",
+      "오늘은 웃음이 끊이지 않을 하루입니다!",
       "자신감을 가지고 도전해보세요!",
       "친구와의 만남이 행복을 선사합니다."
     ];
     
-    // 연인 운세: 나이 차이에 따른 결과 예시
+    function showFortune() {
+      const randomIndex = Math.floor(Math.random() * fortunes.length);
+      document.getElementById("fortuneText").innerText = fortunes[randomIndex];
+      document.getElementById("fortuneMeme").style.display = "block";
+      showFortuneMeme();
+    }
+    function showFortuneMeme() {
+      const memeImages = [
+        "https://via.placeholder.com/400x300?text=Meme+1",
+        "https://via.placeholder.com/400x300?text=Meme+2",
+        "https://via.placeholder.com/400x300?text=Meme+3",
+        "https://via.placeholder.com/400x300?text=Meme+4",
+        "https://via.placeholder.com/400x300?text=Meme+5"
+      ];
+      const randomIndex = Math.floor(Math.random() * memeImages.length);
+      const url = memeImages[randomIndex];
+      document.getElementById("fortuneMemeImage").src = url;
+      document.getElementById("fortuneDownloadLink").href = url;
+    }
+    
+    /* 연인 운세 데이터 */
     function getCoupleFortune(name1, age1, name2, age2) {
       const diff = Math.abs(age1 - age2);
       if (diff === 0) {
@@ -547,17 +497,31 @@
         return `${name1}와 ${name2}는 조금 다른 세상을 살지만, 도전은 언제나 가능해요!`;
       }
     }
+    function showCoupleFortune() {
+      const name1 = document.getElementById("lover1Name").value.trim() || "연인1";
+      const age1 = parseInt(document.getElementById("lover1Age").value, 10) || 0;
+      const name2 = document.getElementById("lover2Name").value.trim() || "연인2";
+      const age2 = parseInt(document.getElementById("lover2Age").value, 10) || 0;
+      if (age1 === 0 || age2 === 0) {
+        document.getElementById("coupleResult").innerText = "두 분의 나이를 입력해주세요.";
+      } else {
+        document.getElementById("coupleResult").innerText = getCoupleFortune(name1, age1, name2, age2);
+      }
+    }
     
-    // 오늘의 짤 이미지 URL 배열 (placeholder 사용)
-    const memeImages = [
-      "https://via.placeholder.com/400x300?text=Meme+1",
-      "https://via.placeholder.com/400x300?text=Meme+2",
-      "https://via.placeholder.com/400x300?text=Meme+3",
-      "https://via.placeholder.com/400x300?text=Meme+4",
-      "https://via.placeholder.com/400x300?text=Meme+5"
-    ];
+    /* 좋아요 기능 */
+    function likeSection(section) {
+      const storageKey = section + "LikeCount";
+      let count = parseInt(localStorage.getItem(storageKey), 10);
+      if (isNaN(count)) count = 0;
+      count++;
+      localStorage.setItem(storageKey, count);
+      document.getElementById(section + "Like").innerText = count;
+    }
+    document.getElementById("fortuneLike").innerText = localStorage.getItem("fortuneLikeCount") || 0;
+    document.getElementById("coupleLike").innerText = localStorage.getItem("coupleLikeCount") || 0;
     
-    // 슬롯머신 아이템: label과 color, background, textColor 지정
+    /* 슬롯머신 기능 (모달 내) */
     const slotItems = [
       { label: "777", color: "#FFD700", background: "linear-gradient(145deg, #8B0000, #800000)", textColor: "#FFD700" },
       { label: "$$", color: "#90EE90", background: "linear-gradient(145deg, #006400, #008000)", textColor: "#F0FFF0" },
@@ -566,61 +530,23 @@
       { label: "7", color: "#FFA07A", background: "linear-gradient(145deg, #8B4513, #A0522D)", textColor: "#FFE4B5" },
       { label: "♠", color: "#20B2AA", background: "linear-gradient(145deg, #2F4F4F, #008B8B)", textColor: "#E0FFFF" }
     ];
-
+    let winProbability = 0.2; // 잭팟 확률 20%
+    let slotSpinning = false;
+    let lastUpdate = 0;
     
-    let winProbability = 0.1; 
-
-    
-    function setJackpotProbability(probability) {
-      if (probability >= 0 && probability <= 1) {
-        winProbability = probability;
-      } else {
-        console.error("확률은 0과 1 사이의 값이어야 합니다.");
-      }
-    }
-
-    // 잭팟 확률을 20%로 설정
-    setJackpotProbability(0.2);
-    
-    /* ---------------- 오늘의 운세 + 짤 ---------------- */
-    function showFortune() {
-      const randomIndex = Math.floor(Math.random() * fortunes.length);
-      document.getElementById("fortuneText").innerText = fortunes[randomIndex];
-      // 오늘의 짤 영역 보이기
-      document.getElementById("fortuneMeme").style.display = "block";
-      showFortuneMeme();
-    }
-    // 오늘의 짤 (확대되어 표시)
-    function showFortuneMeme() {
-      const randomIndex = Math.floor(Math.random() * memeImages.length);
-      const url = memeImages[randomIndex];
-      document.getElementById("fortuneMemeImage").src = url;
-      document.getElementById("fortuneDownloadLink").href = url;
-    }
-    
-    /* ---------------- 연인 운세 ---------------- */
-    function showCoupleFortune() {
-      const name1 = document.getElementById("lover1Name").value.trim() || "연인1";
-      const age1 = parseInt(document.getElementById("lover1Age").value, 10) || 0;
-      const name2 = document.getElementById("lover2Name").value.trim() || "연인2";
-      const age2 = parseInt(document.getElementById("lover2Age").value, 10) || 0;
-      if(age1 === 0 || age2 === 0) {
-        document.getElementById("coupleResult").innerText = "두 분의 나이를 입력해주세요.";
-      } else {
-        document.getElementById("coupleResult").innerText = getCoupleFortune(name1, age1, name2, age2);
-      }
-    }
-    
-    /* ---------------- 슬롯머신 ---------------- */
     const reel1 = document.getElementById('reel1');
     const reel2 = document.getElementById('reel2');
     const reel3 = document.getElementById('reel3');
     const spinButton = document.getElementById('spinButton');
     const slotResult = document.getElementById('slotResult');
+    const jackpotForm = document.getElementById('jackpotForm');
     
-    let slotSpinning = false;
-    let lastUpdate = 0;
-    spinButton.addEventListener('click', () => {
+    function spinSlot() {
+      // 잭팟 폼 숨김 및 버튼 텍스트 초기화
+      jackpotForm.style.display = "none";
+      spinButton.innerText = "슬롯 돌리기";
+      spinButton.onclick = spinSlot;
+      
       if (slotSpinning) return;
       slotSpinning = true;
       slotResult.innerText = "슬롯이 돌아가는 중...";
@@ -646,7 +572,6 @@
           const random2 = slotItems[Math.floor(Math.random() * slotItems.length)];
           const random3 = slotItems[Math.floor(Math.random() * slotItems.length)];
           
-          // 각 릴 업데이트 시 스타일 적용
           updateReel(reel1, random1);
           updateReel(reel2, random2);
           updateReel(reel3, random3);
@@ -656,23 +581,17 @@
         if (elapsed < spinDuration) {
           requestAnimationFrame(animateSlot);
         } else {
-          const item1 = slotItems[final1];
-          const item2 = slotItems[final2];
-          const item3 = slotItems[final3];
-          
-          // 최종 결과 스타일 적용
-          updateReel(reel1, item1);
-          updateReel(reel2, item2);
-          updateReel(reel3, item3);
+          updateReel(reel1, slotItems[final1]);
+          updateReel(reel2, slotItems[final2]);
+          updateReel(reel3, slotItems[final3]);
           
           slotSpinning = false;
           checkSlotResult(final1, final2, final3);
         }
       }
       requestAnimationFrame(animateSlot);
-    });
+    }
     
-    // 릴 업데이트 함수
     function updateReel(reel, item) {
       reel.innerText = item.label;
       reel.style.background = item.background;
@@ -684,59 +603,44 @@
       reel.style.transition = 'all 0.3s ease';
     }
     
-    // 결과 체크 함수 업데이트
     function checkSlotResult(i1, i2, i3) {
       const res1 = slotItems[i1].label;
       const res2 = slotItems[i2].label;
       const res3 = slotItems[i3].label;
-      
       if (res1 === res2 && res2 === res3) {
-        slotResult.innerHTML = `
-          <span style="color: #FFD700; font-size: 5em; text-shadow: 0 0 10px #FFD700;">
-            🎉 대박! ${res1} 잭팟! 🎉
-          </span>`;
+        slotResult.innerHTML = `<span>🎉 대박! ${res1} 잭팟! 🎉</span>`;
+        // 잭팟 발생 시 잭팟 폼 표시 (메일투 방식)
+        jackpotForm.style.display = "block";
       } else {
-        slotResult.innerHTML = `
-         <span style="color: #FFD700; font-size: 5em; text-shadow: 0 0 10px #FFD700;">
-            꽝입니다! 
-          </span>`;
+        slotResult.innerHTML = `<span>꽝입니다!</span>`;
+        // 잭팟이 아닐 경우 바로 공유하기 버튼으로 변경
+        spinButton.innerText = "공유하기";
+        spinButton.onclick = copyPageLink;
       }
     }
     
-    /* ---------------- 좋아요 기능 (섹션별 LocalStorage 저장) ---------------- */
-    function likeSection(section) {
-      const storageKey = section + "LikeCount";
-      let count = parseInt(localStorage.getItem(storageKey), 10);
-      if (isNaN(count)) count = 0;
-      count++;
-      localStorage.setItem(storageKey, count);
-      document.getElementById(section + "Like").innerText = count;
+    /* 모달 열기/닫기 */
+    function showSlotModal() {
+      document.getElementById("slotModal").style.display = "block";
+      // 모달 열릴 때 초기화
+      slotResult.innerText = "";
+      jackpotForm.style.display = "none";
+      spinButton.innerText = "슬롯 돌리기";
+      spinButton.onclick = spinSlot;
     }
-    document.getElementById("fortuneLike").innerText = localStorage.getItem("fortuneLikeCount") || 0;
-    document.getElementById("coupleLike").innerText = localStorage.getItem("coupleLikeCount") || 0;
-    document.getElementById("slotLike").innerText = localStorage.getItem("slotLikeCount") || 0;
-    document.getElementById("memeLike").innerText = localStorage.getItem("memeLikeCount") || 0;
-    
-    /* ---------------- 공유 기능 ---------------- */
-    function shareSection(sectionName) {
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        alert(sectionName + " 결과를 공유하기 위해 링크가 복사되었습니다!\nSNS 앱에서 붙여넣어 주세요.");
-      }).catch(() => {
-        alert("링크 복사에 실패했습니다. 직접 복사해주세요.");
-      });
+    function closeSlotModal() {
+      document.getElementById("slotModal").style.display = "none";
     }
     
-    /* ---------------- 전체 페이지 공유 (푸터) ---------------- */
+    /* 전체 페이지 링크 복사 (공유하기 버튼) */
     function copyPageLink() {
       const url = window.location.href;
       navigator.clipboard.writeText(url).then(() => {
-        alert("전체 페이지 링크가 복사되었습니다!");
+        alert("홈페이지 링크가 복사되었습니다!");
       }).catch(() => {
         alert("링크 복사에 실패했습니다.");
       });
     }
   </script>
-  
 </body>
 </html>
